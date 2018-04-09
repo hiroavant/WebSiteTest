@@ -18,25 +18,28 @@ public partial class Register : System.Web.UI.Page
     {
         //create a dbcontext that specified
         var identityDbContext = new IdentityDbContext("IdentityConnectionString");
-        //create a user store an user manager
+        var roleStore = new RoleStore<IdentityRole>(identityDbContext);
+        var roleManager = new RoleManager<IdentityRole>(roleStore);
+        
+        //create a user store and user manager
         var userStore = new UserStore<IdentityUser>(identityDbContext);
         var manager = new UserManager<IdentityUser>(userStore);
-        //create user
-        var user = new IdentityUser()
-        {
-            UserName = tbxregUser.Text,
-            Email = tbxregPass.Text
-        };
 
+        //create user
+        IdentityRole adminRole = new IdentityRole("Registered User");
+        roleManager.Create(adminRole);
+        var user = new IdentityUser() { UserName = tbxregUser.Text, Email = tbxregPass.Text};
         IdentityResult result = manager.Create(user, tbxregPass.Text);
         if (result.Succeeded)
         {
             //todo: Either aunthenticate the user (log them in) or redirect them to the login page to log in for themselves
-            Literal1.Text = "Registration is successful";
+            //manager.AddToRole(user.Id, "Admin");
+            //manager.Update(user);
+            registerNote.Text = "Registration is successful";
         }
         else
         {
-            Literal1.Text = "An error has occurred: " + result.Errors.FirstOrDefault();
+            registerNote.Text = "An error has occurred: " + result.Errors.FirstOrDefault();
         }
 
         /*

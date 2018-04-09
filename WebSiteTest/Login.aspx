@@ -8,15 +8,16 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder3" Runat="Server">
 <form id="form1" runat="server">
-        <asp:label runat="server" text="Email: " id="lblLoginEmail"></asp:label>
-        <asp:textbox runat="server" ID="txtLoginEmail"></asp:textbox>
+        <asp:label runat="server" text="Username: " id="lblLoginUser"></asp:label>
+        <asp:textbox runat="server" ID="txtLoginUser"></asp:textbox>
         <br />
         <asp:label runat="server" text="Password: " id="lblLoginPassword"></asp:label>
-        <asp:textbox runat="server" ID="txtLoginPassword"></asp:textbox>
+        <asp:textbox runat="server" ID="txtLoginPassword" TextMode="Password"></asp:textbox>
         <br />
         <asp:button runat="server" text="Submit" id="BtnLoginSubmit" OnClick="BtnLoginSubmit_Click" />
         <br />
-        <asp:Literal ID="litErrorLog" runat="server"></asp:Literal>
-    </form>
+        <asp:Literal ID="litErrorLog" runat="server"></asp:Literal>    
+</form>
+    
 </asp:Content>
 

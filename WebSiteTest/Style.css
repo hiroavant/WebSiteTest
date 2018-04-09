@@ -30,7 +30,7 @@
 
 .auto-style5 {
     height: 457px;
-    width: 77px;
+    width: 100px;
     border: thin solid #000000;
     background-color: #FF3300;
     font-family: Georgia, Times New Roman, Times, serif;
@@ -65,4 +65,8 @@ html, body {
 .img-type1 {
     height: 300px;
     width: 300px;
+}
+
+#pageLink1 {
+
 }

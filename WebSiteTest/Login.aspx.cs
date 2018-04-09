@@ -20,7 +20,7 @@ public partial class Login : Page
         var identityDbContext = new IdentityDbContext("IdentityConnectionString");
         var userStore = new UserStore<IdentityUser>(identityDbContext);
         var userManager = new UserManager<IdentityUser>(userStore);
-        var user = userManager.Find(txtLoginEmail.Text,txtLoginPassword.Text);
+        var user = userManager.Find(txtLoginUser.Text,txtLoginPassword.Text);
         if (user != null)
         {
             //todo: log user in / instruct user to log in
@@ -28,7 +28,7 @@ public partial class Login : Page
         }
         else
         {
-            litLoginError.Text = "Invalid username or password.";
+            litErrorLog.Text = "Invalid username or password.";
             
         }
     }
@@ -39,6 +39,10 @@ public partial class Login : Page
         var userIdentity = usermanager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
         authenticationManager.SignIn(new AuthenticationProperties() { }, userIdentity);
         //note: user is automatically redirected if trying to access another page
+
+        if(Request.QueryString["ReturnUrl"] != null)
+        {
+            Response.Redirect(Request.QueryString["ReturnUrl"]);
+        }
     }
-}
 }

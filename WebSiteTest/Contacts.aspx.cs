@@ -19,18 +19,19 @@ public partial class Contacts : System.Web.UI.Page
 
         //create mail client and message with to and from address set message subject and body 
         SmtpClient sClient = new SmtpClient();
-        MailMessage mail = new MailMessage("exploreravant@gmail.com", "");
-        mail Subject = tbxcontactSubject;
-        mail Body = txtcontactReason;
+        System.Net.NetworkCredential NetCreditentail = new System.Net.NetworkCredential("Exploreravant@gmail.com", "");
+        MailMessage mail = new MailMessage("exploreravant@gmail.com", tbxcontactEmail.Text);
+        mail.Subject = tbxcontactSubject.Text;
+        mail.Body = txtcontactReason.Text;
 
         //settings specific to the mail service, e.g. server location, port number and that ssl is required
-        sClient Host = "smtp.gmail.com";
-        sClient Port = 587;
-        sClient EnableSsl = true;
+        sClient.Host = "smtp.gmail.com";
+        sClient.Port = 587;
+        sClient.EnableSsl = true;
 
         //create credentials  - e.g. username and password for the account
         System.Net.NetworkCredential credentials = new System.Net.NetworkCredential("exploreravant@gmail.com", "");
-        sClient Credentials = credentials;
+        sClient.Credentials = credentials;
         mail = new MailMessage("exploreravant@gmail.com", "");
 
         try

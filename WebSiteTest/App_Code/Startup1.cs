@@ -15,7 +15,8 @@ public class Startup1
 
         app.UseCookieAuthentication(new CookieAuthenticationOptions
         {
-            AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie
+            AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
+            LoginPath = new PathString("/Login.aspx")
         });
     }
 }
