@@ -14,15 +14,15 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" Runat="Server">
     <form id="form1" runat="server">
-        <asp:Label ID="Label1" runat="server" Text="Username: "></asp:Label>
-        <asp:TextBox ID="logTxtUsername" runat="server"></asp:TextBox>
-        <br />
-        <asp:Label ID="Label2" runat="server" Text="Password: "></asp:Label>
-        <asp:TextBox ID="logTxtPassword" runat="server" TextMode="Password"></asp:TextBox>
-        <br />
-        <asp:Button ID="Button1" runat="server" Text="Submit" />
-        <br />
-        <asp:Literal ID="Literal1" runat="server"></asp:Literal>
+        <h3>Welcome Admin</h3>
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Product_ID" DataSourceID="SqlDataSource1">
+            <Columns>
+                <asp:BoundField DataField="Product_ID" HeaderText="Product_ID" ReadOnly="True" SortExpression="Product_ID" />
+                <asp:BoundField DataField="Product_Name" HeaderText="Product_Name" SortExpression="Product_Name" />
+                <asp:BoundField DataField="Product_Description" HeaderText="Product_Description" SortExpression="Product_Description" />
+            </Columns>
+        </asp:GridView>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:IdentityConnectionString %>" SelectCommand="SELECT * FROM [tblProduct]"></asp:SqlDataSource>
     </form>
 </asp:Content>
 

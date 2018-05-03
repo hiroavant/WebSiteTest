@@ -11,7 +11,7 @@
         <asp:FileUpload ID="imageFileUploadControl" runat="server" />
         <br />
         <asp:Button ID="Button1" runat="server" Text="Upload" OnClick="Button1_Click" />
-
     </form>
+    <asp:Literal ID="literalUpload1" runat="server"></asp:Literal>
     </asp:Content>
 

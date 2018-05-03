@@ -26,42 +26,35 @@ public partial class Register : System.Web.UI.Page
         var manager = new UserManager<IdentityUser>(userStore);
 
         //create user
-        IdentityRole adminRole = new IdentityRole("Registered User");
+        IdentityRole adminRole = new IdentityRole("Admin");
         roleManager.Create(adminRole);
+        IdentityRole memberRole = new IdentityRole("Registered Member");
+        roleManager.Create(memberRole);
         var user = new IdentityUser() { UserName = tbxregUser.Text, Email = tbxregPass.Text};
         IdentityResult result = manager.Create(user, tbxregPass.Text);
         if (result.Succeeded)
         {
+            if(tbxregUser.Text == "Hiro" || tbxregUser.Text == "test")
+            {
+                manager.AddToRole(user.Id, "Admin");
+                manager.Update(user);
+                registerNote.Text = "Registration is successful. <br/> " +
+                    "Please click the link to proceed to the login page. " +
+                    "<a href =\"Login.aspx\">Login</a>";
+            }
             //todo: Either aunthenticate the user (log them in) or redirect them to the login page to log in for themselves
-            //manager.AddToRole(user.Id, "Admin");
-            //manager.Update(user);
-            registerNote.Text = "Registration is successful";
+            else
+            {
+                manager.AddToRole(user.Id, "Registered Member");
+                manager.Update(user);
+                registerNote.Text = "Registration is successful";
+            }
         }
         else
         {
             registerNote.Text = "An error has occurred: " + result.Errors.FirstOrDefault();
         }
 
-        /*
-         * var identityDbContext = new IdentityDbContext("IdentityConnectionString");
-         * var userStore = new UserStore<IdentityUser>(identityDbContext);
-         * var manager = new UserManager<IdentityUser>(userStore);
-         * var user = new IdentityUser() 
-         * { 
-         *     Username = tbxregUser.Text;
-         *     Email = tbxregEmail.Text;
-         * }
-         * 
-         * IdentityResult result =  manager.Create(user, tbxregPass);
-         * 
-         * if(result.Succeeded)
-         * {
-         * 
-         * }
-         * else
-         * {
-         *      Literal1.Text = "An error has occurred: " + result.Errors.FirstOrDefaut();
-         * }
-         */
+      
     }
 }

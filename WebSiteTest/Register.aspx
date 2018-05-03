@@ -4,8 +4,18 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 </asp:Content>
+
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
+<asp:HyperLink ID="HomeID" runat="server" NavigateUrl="~/Default.aspx">Home</asp:HyperLink>
+<br />
+<asp:HyperLink ID="lnkContact" runat="server" NavigateUrl="~/Contacts.aspx">Contact Us</asp:HyperLink>
+<br />
+<asp:HyperLink ID="lnkLog" runat="server" NavigateUrl="~/Login.aspx">Login</asp:HyperLink>
+<br />
+<asp:HyperLink ID="lnkRegister" runat="server" NavigateUrl="~/Register.aspx" Enabled="False">Register</asp:HyperLink>
 </asp:Content>
+
+
 <asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder3" Runat="Server">
     <form id="form1" method="post" action="#" runat="server">
         <asp:Label ID="lblregUser" runat="server" Text="Username: "></asp:Label>

@@ -23,5 +23,6 @@ public partial class Admin_FileUpload : System.Web.UI.Page
         string saveLocation = Server.MapPath("~/ProductImages/" + filename);
 
         imageFileUploadControl.SaveAs(saveLocation);
+        literalUpload1.Text = "Image uploaded";
     }
 }

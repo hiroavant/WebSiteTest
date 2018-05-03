@@ -24,7 +24,17 @@ public partial class Login : Page
         if (user != null)
         {
             //todo: log user in / instruct user to log in
-            LogUserIn(userManager, user);
+            if (user.UserName == "Hiro" || user.UserName == "Test")
+            {
+                LogUserIn(userManager, user);
+                Response.Redirect("Admin/index.aspx");
+            }
+            else if (user.UserName != "Hiro" || user.UserName != "Test")
+            {
+                LogUserIn(userManager, user);
+                Response.Redirect("Member/index.aspx");
+            }
+            
         }
         else
         {
