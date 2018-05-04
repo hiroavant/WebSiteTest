@@ -10,7 +10,7 @@ public partial class Admin_Edit : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         //create filename using query string
-        string productId = Request.QueryString["ProductId"];
+        string productId = Request.QueryString["Product_ID"];
         string filename = productId + ".jpg";
 
         //note that this is missing alternate text and dimensions

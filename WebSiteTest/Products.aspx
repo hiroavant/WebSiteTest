@@ -16,6 +16,7 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder3" Runat="Server">
     <form id="form1" runat="server">
+    <asp:Image ID="ImageProducts" runat="server" Height="300px" Width="300px" />
     <asp:FormView ID="FormView1" runat="server" DataKeyNames="Product_ID" DataSourceID="SqlDataSource1">
         <EditItemTemplate>
             Product_ID:

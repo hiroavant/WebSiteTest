@@ -32,23 +32,21 @@
     <h2>Contact Form</h2>
     <form id="contactForm1" runat="server">
     <asp:Label ID="lblcontactSubject" runat="server" Text="Subject: "></asp:Label>
-    <p>Subject
+    <p>
         <asp:TextBox ID="tbxcontactSubject" runat="server" Width="200px"></asp:TextBox>
     <asp:RequiredFieldValidator ID="reqcontactSubject" runat="server" ErrorMessage="Subject is required!" ForeColor="Red" ControlToValidate="tbxcontactSubject"></asp:RequiredFieldValidator>
     </p>
-        &nbsp;
     <br />
    
     <asp:Label ID="lblcontactEmail" runat="server" Text="Email Address: "></asp:Label>
-    <p>Email
+    <p>
         <asp:TextBox ID="tbxcontactEmail" runat="server" Width="200px"></asp:TextBox>
         <asp:RequiredFieldValidator ID="reqcontactEmail" runat="server" ErrorMessage="Email Address is required!" ForeColor="Red" Visible="True" ControlToValidate="tbxcontactEmail"></asp:RequiredFieldValidator>
         </p>
-    <br />
     
     <asp:Label ID="lblcontactReason" runat="server" Text="Reasons: "></asp:Label>
-    <p>Reason
-    <asp:TextBox ID="txtcontactReason" runat="server" Width="400px" Height="200px"></asp:TextBox>
+    <p>
+    <asp:TextBox ID="txtcontactReason" runat="server" Width="400px" Height="100px"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Please fill in your reason" ForeColor="Red" ControlToValidate="txtcontactReason"></asp:RequiredFieldValidator><br />
         </p>
         <asp:Literal ID="litResult" runat="server"></asp:Literal>
